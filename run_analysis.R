@@ -39,8 +39,8 @@ names(y_merged) <- c('LabelID', 'ActivityLabel')
 
 ## 4. Appropriately labels the data set with descriptive activity names. 
 tidydata <- cbind(y_merged, extract_mean_std)
-write.csv(tidydata, "tidydata01.csv")
-
+#write.csv(tidydata, "tidydata01.csv")
+write.table(tidydata, "tidydata01.txt")
 ## 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 subject_train <- read.table('UCI HAR Dataset\\train\\subject_train.txt')
 subject_test <- read.table('UCI HAR Dataset\\test\\subject_test.txt')
@@ -68,5 +68,6 @@ for (i in 1:dim(subj_uni)[1]) {
   }
 }
 
-write.csv(tidydata2, "tidydata02.csv")
+#write.csv(tidydata2, "tidydata02.csv")
 
+write.table(tidydata2, "tidydata02.txt")
